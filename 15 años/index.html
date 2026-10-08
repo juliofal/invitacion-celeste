@@ -1,0 +1,724 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis 15 Años - Celeste</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4eee2;
+            color: #64182b;
+            font-family: Georgia, serif;
+            overflow-x: hidden;
+        }
+
+        .pagina {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,.7), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,.5), transparent 30%),
+                #f4eee2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flor {
+            position: absolute;
+            font-size: 55px;
+            opacity: .65;
+            pointer-events: none;
+        }
+
+        .flor1 {
+            top: 30px;
+            left: -10px;
+        }
+
+        .flor2 {
+            top: 500px;
+            right: -10px;
+        }
+
+        .flor3 {
+            bottom: 400px;
+            left: -15px;
+        }
+
+        /* PORTADA */
+
+        .portada {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 25px;
+        }
+
+        .pequeno {
+            font-size: 18px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .nombre {
+            font-size: 90px;
+            font-weight: normal;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #73152d;
+        }
+
+        .quince {
+            font-size: 22px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+        }
+
+        .fecha {
+            font-size: 25px;
+            border-top: 1px solid #73152d;
+            border-bottom: 1px solid #73152d;
+            padding: 12px 30px;
+        }
+
+        .bajar {
+            margin-top: 60px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            animation: mover 1.5s infinite;
+        }
+
+        @keyframes mover {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+        }
+
+        /* SECCIONES */
+
+        section {
+            padding: 70px 30px;
+            text-align: center;
+        }
+
+        .titulo {
+            font-size: 32px;
+            margin-bottom: 25px;
+            font-weight: normal;
+        }
+
+        .linea {
+            width: 80px;
+            height: 2px;
+            background: #73152d;
+            margin: 15px auto 30px;
+        }
+
+        .texto {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #4d2630;
+        }
+
+        /* MÚSICA */
+
+        .musica {
+            margin-top: 30px;
+            border: 1px solid #73152d;
+            padding: 25px;
+        }
+
+        .boton-musica {
+            background: #73152d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            font-size: 25px;
+            cursor: pointer;
+            margin: 15px;
+        }
+
+        /* CONTADOR */
+
+        .contador {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tiempo {
+            border: 1px solid #73152d;
+            padding: 15px 12px;
+            min-width: 70px;
+        }
+
+        .numero {
+            display: block;
+            font-size: 25px;
+        }
+
+        .unidad {
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        /* BOTONES */
+
+        .boton {
+            display: inline-block;
+            background: #73152d;
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            margin-top: 25px;
+            border-radius: 3px;
+            transition: .3s;
+        }
+
+        .boton:hover {
+            background: #4e0f20;
+            transform: scale(1.04);
+        }
+
+        /* GALERÍA */
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 3px 10px rgba(0,0,0,.15);
+        }
+
+        /* DATOS */
+
+        .dato {
+            margin: 25px 0;
+        }
+
+        .icono {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .dato h3 {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        /* CONFIRMACIÓN */
+
+        .confirmacion {
+            background: #73152d;
+            color: white;
+        }
+
+        .confirmacion .titulo {
+            color: white;
+        }
+
+        .confirmacion .texto {
+            color: white;
+        }
+
+        .confirmacion .boton {
+            background: white;
+            color: #73152d;
+        }
+
+        /* FINAL */
+
+        .final {
+            padding: 90px 25px;
+            text-align: center;
+        }
+
+        .final h2 {
+            font-size: 42px;
+            font-style: italic;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 500px) {
+
+            .nombre {
+                font-size: 70px;
+            }
+
+            .quince {
+                font-size: 18px;
+                letter-spacing: 5px;
+            }
+
+            .fecha {
+                font-size: 21px;
+            }
+
+            section {
+                padding: 60px 22px;
+            }
+
+            .galeria img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="pagina">
+
+    <div class="flor flor1">🌸</div>
+    <div class="flor flor2">🌺</div>
+    <div class="flor flor3">🌼</div>
+
+
+    <!-- PORTADA -->
+
+    <div class="portada">
+
+        <div class="pequeno">
+            MIS
+        </div>
+
+        <h1 class="nombre">
+            Celeste
+        </h1>
+
+        <div class="quince">
+            15 AÑOS
+        </div>
+
+        <div class="fecha">
+            27 · NOVIEMBRE · 2026
+        </div>
+
+        <div class="bajar">
+            DESLIZÁ HACIA ABAJO ↓
+        </div>
+
+    </div>
+
+
+    <!-- PRESENTACIÓN -->
+
+    <section>
+
+        <h2 class="titulo">
+            Un día muy especial
+        </h2>
+
+        <div class="linea"></div>
+
+        <p class="texto">
+            Hay días que se vuelven inolvidables,
+            momentos que queremos guardar para
+            siempre y personas que hacen nuestra
+            vida más especial.
+            <br><br>
+
+            Por eso quiero que estés conmigo
+            en esta noche tan importante y
+            compartas la alegría de celebrar...
+            <br><br>
+
+            <strong>¡Mis Quince Años!</strong>
+        </p>
+
+    </section>
+
+
+    <!-- MÚSICA -->
+
+    <section>
+
+        <h2 class="titulo">
+            Mi canción
+        </h2>
+
+        <div class="linea"></div>
+
+        <p class="texto">
+            Presioná play para reproducir la canción
+        </p>
+
+        <div class="musica">
+
+            <button class="boton-musica" onclick="reproducirMusica()">
+                ▶
+            </button>
+
+            <p>
+                Mi canción favorita
+            </p>
+
+        </div>
+
+        <audio id="musica">
+            <source src="musica.mp3" type="audio/mpeg">
+        </audio>
+
+    </section>
+
+
+    <!-- CUENTA REGRESIVA -->
+
+    <section>
+
+        <h2 class="titulo">
+            Falta poquito...
+        </h2>
+
+        <div class="linea"></div>
+
+        <div class="contador">
+
+            <div class="tiempo">
+                <span class="numero" id="dias">00</span>
+                <span class="unidad">Días</span>
+            </div>
+
+            <div class="tiempo">
+                <span class="numero" id="horas">00</span>
+                <span class="unidad">Horas</span>
+            </div>
+
+            <div class="tiempo">
+                <span class="numero" id="minutos">00</span>
+                <span class="unidad">Min</span>
+            </div>
+
+            <div class="tiempo">
+                <span class="numero" id="segundos">00</span>
+                <span class="unidad">Seg</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- UBICACIÓN -->
+
+    <section>
+
+        <h2 class="titulo">
+            ¿Dónde?
+        </h2>
+
+        <div class="linea"></div>
+
+        <div class="dato">
+
+            <div class="icono">
+                📍
+            </div>
+
+            <h3>
+                Salón de eventos
+            </h3>
+
+            <p class="texto">
+                Nombre del salón<br>
+                Dirección del evento
+            </p>
+
+            <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                class="boton">
+                VER UBICACIÓN
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FECHA Y HORA -->
+
+    <section>
+
+        <h2 class="titulo">
+            ¿Cuándo?
+        </h2>
+
+        <div class="linea"></div>
+
+        <div class="dato">
+
+            <div class="icono">
+                📅
+            </div>
+
+            <h3>
+                Viernes 27 de Noviembre
+            </h3>
+
+            <p class="texto">
+                22:00 hs
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DRESS CODE -->
+
+    <section>
+
+        <h2 class="titulo">
+            Dress Code
+        </h2>
+
+        <div class="linea"></div>
+
+        <div class="dato">
+
+            <div class="icono">
+                ✨
+            </div>
+
+            <h3>
+                Elegante
+            </h3>
+
+            <p class="texto">
+                Vestite como más te guste
+                para compartir esta noche especial.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALERÍA -->
+
+    <section>
+
+        <h2 class="titulo">
+            Mis recuerdos
+        </h2>
+
+        <div class="linea"></div>
+
+        <p class="texto">
+            Algunos momentos que quiero compartir.
+        </p>
+
+        <div class="galeria">
+
+            <img src="imagenes/foto1.jpg" alt="Foto de Celeste">
+
+            <img src="imagenes/foto2.jpg" alt="Foto de Celeste">
+
+            <img src="imagenes/foto3.jpg" alt="Foto de Celeste">
+
+            <img src="imagenes/foto4.jpg" alt="Foto de Celeste">
+
+        </div>
+
+    </section>
+
+
+    <!-- REGALO -->
+
+    <section>
+
+        <h2 class="titulo">
+            Un detalle
+        </h2>
+
+        <div class="linea"></div>
+
+        <div class="dato">
+
+            <div class="icono">
+                🎁
+            </div>
+
+            <p class="texto">
+                Tu presencia es mi mejor regalo.
+                <br><br>
+
+                Pero si querés hacerme un presente,
+                podés hacerlo de la siguiente manera:
+            </p>
+
+            <p class="texto" style="margin-top:20px;">
+                Alias: <strong>MI.ALIAS</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONFIRMACIÓN -->
+
+    <section class="confirmacion">
+
+        <h2 class="titulo">
+            Confirmá tu asistencia
+        </h2>
+
+        <div class="linea"></div>
+
+        <p class="texto">
+            Quiero compartir esta noche con
+            las personas que quiero.
+            <br><br>
+
+            ¿Me acompañás?
+        </p>
+
+        <a
+            href="https://wa.me/5491100000000?text=Hola%20Celeste%2C%20confirmo%20mi%20asistencia%20a%20tus%2015"
+            target="_blank"
+            class="boton">
+            CONFIRMAR ASISTENCIA
+        </a>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <div class="final">
+
+        <h2>
+            Celeste
+        </h2>
+
+        <p>
+            Gracias por ser parte
+            de este momento tan especial.
+            <br><br>
+
+            💕
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* MÚSICA */
+
+    function reproducirMusica() {
+
+        const musica = document.getElementById("musica");
+
+        if (musica.paused) {
+            musica.play();
+        } else {
+            musica.pause();
+        }
+
+    }
+
+
+    /* CUENTA REGRESIVA */
+
+    const fechaEvento = new Date("2026-11-27T22:00:00").getTime();
+
+
+    function actualizarContador() {
+
+        const ahora = new Date().getTime();
+
+        const diferencia = fechaEvento - ahora;
+
+
+        if (diferencia <= 0) {
+
+            document.getElementById("dias").innerHTML = "00";
+            document.getElementById("horas").innerHTML = "00";
+            document.getElementById("minutos").innerHTML = "00";
+            document.getElementById("segundos").innerHTML = "00";
+
+            return;
+        }
+
+
+        const dias = Math.floor(
+            diferencia / (1000 * 60 * 60 * 24)
+        );
+
+        const horas = Math.floor(
+            (diferencia / (1000 * 60 * 60)) % 24
+        );
+
+        const minutos = Math.floor(
+            (diferencia / (1000 * 60)) % 60
+        );
+
+        const segundos = Math.floor(
+            (diferencia / 1000) % 60
+        );
+
+
+        document.getElementById("dias").innerHTML =
+            String(dias).padStart(2, "0");
+
+        document.getElementById("horas").innerHTML =
+            String(horas).padStart(2, "0");
+
+        document.getElementById("minutos").innerHTML =
+            String(minutos).padStart(2, "0");
+
+        document.getElementById("segundos").innerHTML =
+            String(segundos).padStart(2, "0");
+    }
+
+
+    actualizarContador();
+
+    setInterval(actualizarContador, 1000);
+
+</script>
+
+</body>
+</html>
+```
